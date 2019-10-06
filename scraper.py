@@ -4,6 +4,8 @@ import requests
 from forms import UrlSearchForm
 
 import nltk
+import warnings
+warnings.filterwarnings("ignore")
 from newspaper import Article
 
 from wordcloud import WordCloud
