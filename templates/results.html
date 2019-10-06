@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>News Data Summarizer App</title>
+   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+   <div class="container p-3 my-3">
+
+
+
+      <h5>news data from the URL link below you entered has been analyzed as follows:</h5>
+      <h6>{{ search_string }}</h6>
+
+
+      <div class="container table-responsive result py-4">
+         <table class="table table-light">
+            <tbody>
+               <tr>
+                  <td class="col1">Title</td>
+                  <td class="col2"><a href="{{ search_string }}" target="_blank">{{ title }}</a></td>
+               </tr>
+
+               <tr>
+                  <td>Published date</td>
+                  <td>{{ published_date }}</td>
+               </tr>
+
+               <tr>
+                  <td>Author</td>
+                  <td>{{ author }}</td>
+               </tr>
+
+               <tr>
+                  <td>Top image</td>
+                  <td><img id="crop" src="{{ image }}"></td>
+               </tr>
+
+               <tr>
+                  <td>Keywords</td>
+                  <td><img src="data:image/png;base64,{{cloud}}"></td>
+               </tr>
+
+               <tr>
+                  <td>Summary</td>
+                  <td>{{ summary }}</td>
+               </tr>
+
+            </tbody>
+         </table>
+      </div>
+
+   </div>
+
+</body>
+
+</html>
