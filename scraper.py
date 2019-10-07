@@ -4,8 +4,7 @@ import requests
 from forms import UrlSearchForm
 
 import nltk
-import warnings
-warnings.filterwarnings("ignore")
+nltk.path.append('./nltk_data/')
 from newspaper import Article
 
 from wordcloud import WordCloud
