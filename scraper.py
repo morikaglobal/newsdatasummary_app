@@ -28,43 +28,54 @@ app = Flask(__name__)
 def index():
     errors = []
     urlsearch = UrlSearchForm(request.form)
+    return render_template("index.html", form = urlsearch, errors = errors)
+
+
+
+
+    
+
+@app.route("/results", methods = ["GET", "POST"])
+def search_results(urlsearch):
+
+    
+    
     if request.method == "POST":
 
         try:
-            # return render_template("results.html", urlsearch = urlsearch)
-            return redirect(url_for('results'))
+            search_string = urlsearch.data['search']
+
+            article = Article(search_string)
+
+            article.download()
+            article.parse()
+            nltk.download("punkt")
+            article.nlp()
+
+            data = article.text
+            title = article.title
+            date = article.publish_date
+            published_date = date.strftime("%d %B %Y")
+            author = article.authors[0]
+
+            image = article.top_image
+
+            cloud = get_wordcloud(data)
+
+            summary = article.summary
+
+            return render_template("results.html", search_string = search_string, data = data, title=title, published_date=published_date, author = author, image = image, cloud = cloud, summary = summary)
+                    
         except:
             errors.append(
                 "Unable to get the URL.  Please enter a valid URL for news article."
             )
+            return render_template("index.html", errors = errors)
+    return "END"
 
-    return render_template("index.html", form=urlsearch, errors = errors)
 
-@app.route("/results")
-def search_results(urlsearch):
     
-    search_string = urlsearch.data['search']
-
-    article = Article(search_string)
-
-    article.download()
-    article.parse()
-    nltk.download("punkt")
-    article.nlp()
-
-    data = article.text
-    title = article.title
-    date = article.publish_date
-    published_date = date.strftime("%d %B %Y")
-    author = article.authors[0]
-
-    image = article.top_image
-
-    cloud = get_wordcloud(data)
-
-    summary = article.summary
-
-    return render_template("results.html", search_string = search_string, data = data, title=title, published_date=published_date, author = author, image = image, cloud = cloud, summary = summary)
+    
 
 if __name__ == '__main__':
       app.run()
