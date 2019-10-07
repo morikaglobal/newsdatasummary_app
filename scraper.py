@@ -66,8 +66,5 @@ def search_results(urlsearch):
 
     return render_template("results.html", search_string = search_string, data = data, title=title, published_date=published_date, author = author, image = image, cloud = cloud, summary = summary)
 
-        
-    
-
 if __name__ == '__main__':
       app.run()
