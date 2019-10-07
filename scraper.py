@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 import os
 import requests
 from forms import UrlSearchForm
@@ -31,7 +31,7 @@ def index():
     if request.method == "POST":
 
         try:
-            return redirect (url_for('/results'))
+            return redirect (url_for('results'))
             # return search_results(urlsearch)
         except:
             errors.append(
