@@ -32,7 +32,7 @@ def index():
 
         try:
             # return render_template("results.html", urlsearch = urlsearch)
-            return search_results(urlsearch)
+            return redirect(url_for('results'))
         except:
             errors.append(
                 "Unable to get the URL.  Please enter a valid URL for news article."
