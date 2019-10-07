@@ -31,8 +31,7 @@ def index():
     if request.method == "POST":
 
         try:
-            return redirect (url_for('results'))
-            # return search_results(urlsearch)
+            return search_results(urlsearch)
         except:
             errors.append(
                 "Unable to get the URL.  Please enter a valid URL for news article."

@@ -18,7 +18,7 @@
             <h6>Enter or paste the URL link of a news article to extract the news data summary:</h6>
 
             {% from "_formhelpers.html" import render_field %}
-            <form method=post>
+            <form method="post" action = "{{ url_for('results') }}">
                 <dl>
                     <p>
                         {{ render_field(form.search) }}
