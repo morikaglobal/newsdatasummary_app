@@ -1,3 +1,5 @@
 static/* linguist-vendored
 templates/* linguist-vendored
 images/* linguist-vendored
+env4/* linguist-vendored
+nltk_data/* linguist-vendored
