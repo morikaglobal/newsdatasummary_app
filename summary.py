@@ -60,9 +60,9 @@ def search_results(urlsearch):
 
     cloud = get_wordcloud(data)
 
-    # summary = data
+    summary = article.summary
 
-    return render_template("results.html", search_string = search_string, cloud = cloud)
+    return render_template("results.html", search_string = search_string,data = data, title=title, published_date=published_date, author = author, image = image, summary = summary)
 
 
     # return render_template("results.html", search_string = search_string, data = data, title=title, published_date=published_date, author = author, image = image, cloud = cloud)
