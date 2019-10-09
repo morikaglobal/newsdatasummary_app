@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request
 import os
 import requests
 from forms import UrlSearchForm
@@ -62,7 +62,7 @@ def search_results(urlsearch):
 
     # summary = article.summary
 
-    return render_template("results.html", search_string = search_string,data = data, title=title, published_date=published_date, author = author)
+    return render_template("results.html", search_string = search_string,title=title, published_date=published_date, author = author)
 
 
     # return render_template("results.html", search_string = search_string, data = data, title=title, published_date=published_date, author = author, image = image, cloud = cloud)
