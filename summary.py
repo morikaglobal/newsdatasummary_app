@@ -42,30 +42,26 @@ def search_results(urlsearch):
     urlsearch = UrlSearchForm(request.form)
     search_string = urlsearch.data['search']
 
-    return render_template("test.html", search_string = search_string)
- 
-    # search_string = urlsearch.data['search']
+    article = Article(search_string)
 
-    # article = Article(search_string)
+    article.download()
+    article.parse()
+    nltk.download("punkt")
+    article.nlp()
 
-    # article.download()
-    # article.parse()
-    # nltk.download("punkt")
-    # article.nlp()
+    data = article.text
+    title = article.title
+    date = article.publish_date
+    published_date = date.strftime("%d %B %Y")
+    author = article.authors[0]
 
-    # data = article.text
-    # title = article.title
-    # date = article.publish_date
-    # published_date = date.strftime("%d %B %Y")
-    # author = article.authors[0]
+    image = article.top_image
 
-    # image = article.top_image
+    cloud = get_wordcloud(data)
 
-    # cloud = get_wordcloud(data)
+    summary = article.summary
 
-    # summary = article.summary
-
-    # return render_template("results.html", search_string = search_string, data = data, title=title, published_date=published_date, author = author, image = image, cloud = cloud, summary = summary)
+    return render_template("results.html", search_string = search_string, data = data, title=title, published_date=published_date, author = author, image = image, cloud = cloud, summary = summary)
             
 if __name__ == '__main__':
       app.run()

@@ -2,7 +2,7 @@
 
 News Summarizer App using <strong>Python</strong>, <strong>newspaper3k</strong> and <strong>nltk</strong> to scrape and extract news data from from a given URL using <strong>requests</strong> and transform and load the extracted data using <strong>WTforms</strong>, <strong>WordCloud</strong> and <strong>Flask</strong> 
 
-<a href="https://newssummarizer.herokuapp.com/" target="_blank">View Demo</a>
+<a href="https://newsdatasummaryapp.herokuapp.com/" target="_blank">View Demo</a>
 
 ## About the Project
 
