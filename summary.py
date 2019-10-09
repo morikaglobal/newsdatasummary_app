@@ -56,13 +56,13 @@ def search_results(urlsearch):
     published_date = date.strftime("%d %B %Y")
     author = article.authors[0]
 
-    image = article.top_image
+    # image = article.top_image
 
     cloud = get_wordcloud(data)
 
     summary = article.summary
 
-    return render_template("results.html", search_string = search_string,data = data, title=title, published_date=published_date, author = author, image = image, summary = summary)
+    return render_template("results.html", search_string = search_string,data = data, title=title, published_date=published_date, author = author,summary = summary)
 
 
     # return render_template("results.html", search_string = search_string, data = data, title=title, published_date=published_date, author = author, image = image, cloud = cloud)
