@@ -3,8 +3,8 @@ import os
 import requests
 from forms import UrlSearchForm
 
-# import nltk
-# nltk.data.path.append('./nltk_data/')
+import nltk
+nltk.data.path.append('./nltk_data/')
 
 from newspaper import Article
 from wordcloud import WordCloud
@@ -47,7 +47,7 @@ def search_results(urlsearch):
 
     article.download()
     article.parse()
-    # nltk.download("punkt")
+    nltk.download("punkt")
     article.nlp()
 
     data = article.text
