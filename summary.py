@@ -58,11 +58,11 @@ def search_results(urlsearch):
 
     image = article.top_image
 
-    # cloud = get_wordcloud(data)
+    cloud = get_wordcloud(data)
 
     # summary = article.summary
 
-    return render_template("results.html", search_string = search_string, title = title, published_date=published_date, author = author, image = image)
+    return render_template("results.html", search_string = search_string, title = title, published_date=published_date, author = author, image = image, cloud = cloud)
 
 
     # return render_template("results.html", search_string = search_string, data = data, title=title, published_date=published_date, author = author, image = image, cloud = cloud)
