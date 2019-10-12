@@ -33,7 +33,7 @@
 </div>
 
 <span>Please visit my <a href="https://www.morikaglobal.com" target="_blank">Portfolio site</a> or <a
-        href="https://github.com/morikaglobal/news_summarizer_app" target="_blank">my github </a> for the
+        href="https://github.com/morikaglobal/newsdatasummary_app" target="_blank">my github </a> for the
     code of this app.</span><br><br>
 <h6>About this app</h6>
 
@@ -42,14 +42,13 @@
         from a specific news site using <strong>Beautiful Soup</strong> and <strong>Flask</strong>.</span>
     <br><br>
     <span>This time, I built slightly more advanced version of the app to scrape news data from a news
-        article</span><span> using <strong>Python</strong> packages <strong>newspaper3k</strong> and
-        <strong>nltk</strong>, then deployed the app using <strong>Flask</strong> and on
+        article</span><span> using <strong>Python</strong> package <strong>newspaper3k</strong>, then deployed the app using <strong>Flask</strong> and on
         <strong>heroku</strong>.</span>
 
     <br><br>
 
     <span>First of all, when the URL link form above captures the URL link of a news article,</span><span> the
-        <strong>newspaper3k</strong> package will extract and parse the data of the article.</span><span>For form input
+        <strong>newspaper3k</strong> package will extract and parse the data of the article with its Natural Language Processing.</span><span>For form input
         handling and validation, I used <strong>WTForms</strong> and
         <strong>requests</strong> libraries to grab the URL link entered in the form.</span><span>
         Then, from the data extracted I extract following data to render on the first part of my result
@@ -68,10 +67,10 @@
         words that are the most frequent among the news text extracted.</span><span><strong>io</strong> library is used
         to keep the WordCloud image in memory and <strong>base64</strong> to convert the resulting bytes</span><span> to
         base64 in order to return the image as part of our HTML response and render the image.</span>
+        <span>* Please note WordCloud is currently disabled due to image storage issue</span>
     <br><br>
 
-    <span>Lastly <strong>nltk</strong>, the Natural Language Toolkit and its sentence tokenizer tokenizes
-        the article text to produce the summary of the article.</span><br><br>
+    <span>Lastly <strong>newspaper3k</strong> can also run its simple natural language processing to extract keywords from the news and also produce the summary of the article text.</span><br><br>
 
     <strong>Keywords (WordCloud image)</strong><br>
     <strong>Summary</strong>
