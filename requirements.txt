@@ -14,7 +14,7 @@ imageio==2.4.1
 itsdangerous==1.1.0
 jieba3k==0.35.1
 Jinja2==3.0.1
-joblib==1.0.1
+joblib==1.2.0
 lxml==4.6.3
 MarkupSafe==2.0.1
 newspaper3k==0.2.8
