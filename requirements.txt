@@ -36,5 +36,5 @@ tinysegmenter==0.3
 tldextract==3.1.0
 tqdm==4.61.2
 urllib3==1.25.11
-Werkzeug==2.2.3
+Werkzeug==2.0.3
 WTForms==2.2.1
