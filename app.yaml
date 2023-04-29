@@ -1,0 +1,18 @@
+runtime: python37
+env: standard
+
+handlers:
+- url: /.*
+  secure: always
+  script: auto
+
+readiness_check:
+  app_start_timeout_sec: 600
+
+automatic_scaling:
+  max_instances: 1
+  max_idle_instances: 1
+  min_instances: 0
+  min_idle_instances: 0
+  min_pending_latency: 3000ms
+  max_pending_latency: automatic

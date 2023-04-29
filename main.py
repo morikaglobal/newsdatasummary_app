@@ -3,8 +3,8 @@ import os
 import requests
 from forms import UrlSearchForm
 
-# import nltk
-# nltk.data.path.append('./nltk_data/')
+import nltk
+# nltk.data.path.append('/nltk_data/')
 
 from newspaper import Article
 # from wordcloud import WordCloud
@@ -40,16 +40,20 @@ def index():
 
 # @app.route("/results", methods = ["GET", "POST"])
 def search_results(urlsearch):
+    
     urlsearch = UrlSearchForm(request.form)
     search_string = urlsearch.data['search']
+    print(search_string)
 
-    article = Article(search_string)
+    article = Article(search_string,memorize_articles=False)
 
-    article.download()
+    article.download() 
     article.parse()
-    # nltk.download("punkt")
+    print(article.title)
+    # need to download punkt on GAE for .nlp() to work
+    nltk.download("punkt")
     article.nlp()
-
+    
     data = article.text
     title = article.title
     date = article.publish_date
@@ -66,9 +70,5 @@ def search_results(urlsearch):
 
     return render_template("results.html", search_string = search_string, title = title, published_date=published_date, author = author, image = image, keyword = keyword, summary = summary)
 
-
-    # return render_template("results.html", search_string = search_string, data = data, title=title, published_date=published_date, author = author, image = image, cloud = cloud)
-
-    # return render_template("results.html", search_string = search_string, data = data, title=title, published_date=published_date, author = author, image = image, cloud = cloud, summary = summary)           
 if __name__ == '__main__':
       app.run()
