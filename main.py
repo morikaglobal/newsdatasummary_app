@@ -4,7 +4,7 @@ import requests
 from forms import UrlSearchForm
 
 import nltk
-# nltk.data.path.append('/nltk_data/')
+# nltk.data.path.append('nltk_data/')
 
 from newspaper import Article
 # from wordcloud import WordCloud
