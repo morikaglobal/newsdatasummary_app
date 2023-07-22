@@ -18,7 +18,7 @@ joblib==1.2.0
 lxml==4.9.2
 MarkupSafe==2.1.2
 newspaper3k==0.2.8
-nltk==3.6.2
+nltk==3.6.6
 numpy==1.21.5
 Pillow==9.5.0
 pybase64==1.0.0
